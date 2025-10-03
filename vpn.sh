@@ -8,7 +8,7 @@ SERVER_PORT=1194
 VPN_SUBNET="10.8.0.0/24"
 
 # 👉 Укажи свой статический IP здесь:
-SERVER_IP="104.238.24.172"
+SERVER_IP="255.255.255.255"
 SERVER_URL="udp://$SERVER_IP"
 
 CLIENT_NAME="client1"

@@ -9,7 +9,7 @@
 
 1. Скопируйте скрипт `setup_openvpn.sh` на ваш сервер.
 2. Укажите в нём ваш статический IP:
-- SERVER_IP="123.45.67.89"
+- SERVER_IP="255.255.255.255"
 3. Сделайте скрипт исполняемым:
 - chmod +x setup_openvpn.sh
 4. запустить установку
@@ -26,19 +26,19 @@
 
 ## Управление клиентами
 
-1. Для управления клиентами используйте скрипт manage_openvpn.sh.
+1. Для управления клиентами используйте скрипт manage_vpn.sh.
 2. Сделайте его исполняемым:
-- chmod +x manage_openvpn.sh
+- chmod +x manage_vpn.sh
 
 3. Добавить клиента
-- ./manage_openvpn.sh add user1
+- ./manage_vpn.sh add user1
 Создаст user1.ovpn, который можно импортировать в OpenVPN Client.
 
 4. Получить конфиг клиента
-- ./manage_openvpn.sh get user1
+- ./manage_vpn.sh get user1
 
 5. Отозвать клиента
-- ./manage_openvpn.sh revoke user1
+- ./manage_vpn.sh revoke user1
 
 Где лежат файлы
 - ovpn-data/ — папка с конфигурацией и сертификатами;
