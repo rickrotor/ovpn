@@ -10,10 +10,8 @@
 1. Скопируйте скрипт `vpn.sh` на ваш сервер.
 2. Укажите в нём ваш статический IP:
 - SERVER_IP="255.255.255.255"
-3. Сделайте скрипт исполняемым:
-- chmod +x vpn.sh
-4. запустить установку
-- ./vpn.sh
+3. запустить установку
+- sudo bash ./vpn.sh
 
 скрипт:
 - проверяет наличие Docker, устанавливает при необходимости;
@@ -26,19 +24,16 @@
 
 ## Управление клиентами
 
-1. Для управления клиентами используйте скрипт manage_vpn.sh.
-2. Сделайте его исполняемым:
-- chmod +x manage_vpn.sh
+1. Для управления клиентами используйте скрипт manage-vpn.sh.
+2. Добавить клиента
+- sudo bash ./manage-vpn.sh add <user_name>
+Создаст <user_name>.ovpn, который можно импортировать в OpenVPN Client.
 
-3. Добавить клиента
-- ./manage_vpn.sh add user1
-Создаст user1.ovpn, который можно импортировать в OpenVPN Client.
+3. Получить конфиг клиента
+- sudo bash ./manage-vpn.sh get <user_name>
 
-4. Получить конфиг клиента
-- ./manage_vpn.sh get user1
-
-5. Отозвать клиента
-- ./manage_vpn.sh revoke user1
+4. Отозвать клиента
+- sudo bash ./manage-vpn.sh revoke <user_name>
 
 Где лежат файлы
 - ovpn-data/ — папка с конфигурацией и сертификатами;
@@ -46,11 +41,11 @@
 
 ## Подключение клиента
 
-- Скопируйте файл user1.ovpn на устройство.
+- Скопируйте файл <user_name>.ovpn на устройство.
 - Импортируйте его в OpenVPN-клиент:
 - Windows: OpenVPN GUI
 - macOS: Tunnelblick
-- Linux: пакет openvpn → openvpn --config user1.ovpn
+- Linux: пакет openvpn → openvpn --config <user_name>.ovpn
 - iOS / Android: приложение OpenVPN Connect из App Store / Google Play.
 - Подключитесь — весь трафик будет идти через ваш VPN.
 
